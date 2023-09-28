@@ -81,7 +81,7 @@ function completarTarea(indice) {
 
 //Funcion para salir
 
-rl.on('close', () => {
+const salir = rl.on('close', () => {
   console.log('¡Hasta luego!');
 });
 
@@ -161,19 +161,12 @@ realizarPregunta()
 
 // //--------------------------------------------------------------------------------------------------------------------------
 
-//Servidor
 
-//Constantes servidor
-const express = require ('express')
-const app = express()
-const host = 'localhost'
-
-const port = 8080
-
-app.get('/', (req, res) => {
-  res.send(JSON.stringify(tareas))
-})
-
-app.listen(port, () => {
-    console.log(`Servidor activo en ${port}`)
-})
+module.exports = {
+  listarTareas,
+  agregarTarea,
+  eliminarTarea,
+  completarTarea,
+  realizarPregunta,
+  tareas
+}
